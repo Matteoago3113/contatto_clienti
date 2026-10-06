@@ -51,3 +51,7 @@ node --check app.js
 ```
 
 La futura fase 2 potrà valorizzare i campi dal database e integrare invio e storico. Questa versione non richiede credenziali né servizi esterni.
+
+## Titoli dei messaggi
+
+`message-titles.json` contiene i titoli editoriali dei 83 modelli. Sono basati sui testi originali e distinguono argomento, media effettivamente citati (video, foto, PDF o allegati), destinatario e contesto documentato. Non aggiungono nuovi messaggi e non cambiano corpo, oggetto, fasi o etichette originali nel catalogo. Il titolo descrittivo compare sopra l’anteprima nella scelta dei messaggi. Il build genera `message-titles.js` e lo include anche nel file autonomo. I titoli modificati dall’utente in Gestisci messaggi restano prioritari.

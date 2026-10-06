@@ -31,6 +31,23 @@ class CatalogTests(unittest.TestCase):
         self.assertIn('[Azienda]', t['body'])
         self.assertIn('[Descrizione Servizio]', t['body'])
 
+    def test_titles_cover_every_original_and_distinguish_choices(self):
+        titles = json.loads((ROOT / 'message-titles.json').read_text())
+        self.assertEqual(set(titles), {t['id'] for t in self.catalog})
+        groups = {}
+        for t in self.catalog:
+            title = titles[t['id']]
+            self.assertTrue(title.strip())
+            self.assertLessEqual(len(title), 90)
+            self.assertNotEqual(title, 'Testo')
+            for channel in (('email', 'whatsapp') if t['channel'] == 'entrambi' else (t['channel'],)):
+                key = (t['brand'], t['category'], channel)
+                self.assertNotIn(title, groups.setdefault(key, set()))
+                groups[key].add(title)
+        self.assertIn('Foto + video', titles['Sitointerattivo-330-None'])
+        self.assertIn('dopo telefonata', titles['Sitointerattivo-53-52'])
+        self.assertNotIn('Secondo contatto', titles['Abracadabra-2-None'])
+
     def test_internal_password_rows_not_imported(self):
         self.assertFalse(any(t['sourceLabel'] == 'Password' for t in self.catalog))
         self.assertFalse(any('ciaociao' in t['body'] for t in self.catalog))
