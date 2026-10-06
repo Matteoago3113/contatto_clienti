@@ -1,0 +1,17 @@
+CONTATTO PER WINDOWS 10/11 A 64 BIT
+
+1. Estrai tutta la cartella ZIP.
+2. Fai doppio clic su AvviaContatto.cmd.
+3. Alla prima apertura attendi il download dei componenti (151 MB).
+4. Contatto si apre in una finestra propria; sul Desktop trovi il collegamento.
+
+Dopo il primo avvio non serve internet. Non servono Python, Node o browser.
+Il runtime viene scaricato dalla release ufficiale Electron e verificato
+tramite SHA-256 prima di avviarlo. Non sono necessari permessi amministratore.
+
+Il pulsante Gestisci messaggi permette modifiche, nuovi modelli e backup.
+I modelli vengono salvati in %APPDATA%\Contatto.
+L'app non invia messaggi e non e collegata al database.
+
+Il programma e preparato ma non ancora provato su una macchina Windows.
+Se l'avvio fallisce, la finestra resta aperta e mostra l'errore.

@@ -1,0 +1,8 @@
+{
+  "name": "contatto-clienti",
+  "productName": "Contatto",
+  "version": "1.0.0",
+  "description": "Composizione guidata dei messaggi Sitointerattivo e Abracadabra",
+  "main": "main.cjs",
+  "private": true
+}
